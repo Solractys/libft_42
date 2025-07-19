@@ -25,7 +25,7 @@ char *ft_strnstr(const char *big, const char *little, size_t len)
         while (big[i] != '\0' && i < len)
         {
                 j = 0;
-                while (big[i] == little[j])
+                while (big[i] == little[j] && i < len)
                 {
                         i++;
                         j++;
@@ -36,11 +36,3 @@ char *ft_strnstr(const char *big, const char *little, size_t len)
         }
         return (NULL);
 }
-// #include <stdio.h>
-// int    main(void)
-// {
-//     char haystack[30] = "aaabcabcd";
-//     char needle[10] = "abcd";
-
-//     printf("%s\n",ft_strnstr(haystack, needle, 9));
-// }
