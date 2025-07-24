@@ -19,6 +19,11 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	unsigned char	*temp;
 	size_t		i;
 
+	if (nmemb == 0 || size == 0)
+		{
+			temp = malloc(1);
+			return (temp);
+		}
 	temp = malloc(nmemb * size);
 	i = 0;
 	if(!temp)
@@ -27,4 +32,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		temp[i++] = 0;
 	return (temp);
 }
-
