@@ -41,9 +41,3 @@ char *ft_strtrim(char const *s1, char const *set)
 	}
 	return (s3);
 }
-// #include "stdio.h"
-// int	main(void)
-// {
-// 	printf("%s" , ft_strtrim("adadadTesteadadad", "ad"));
-// 	return (0);
-// }
