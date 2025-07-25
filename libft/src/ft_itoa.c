@@ -59,6 +59,8 @@ char	*ft_itoa(int n)
 	nb = n;
 	count = count_int(nb);
 	result = ft_alok(count);
+	if (!result)
+		return (NULL);
 	if (nb < 0)
 		nb = -nb;
 	while (count > 0)
