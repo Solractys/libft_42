@@ -10,59 +10,69 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../libft.h"
 
-static int count_int(int n);
+char		*ft_itoa(int n);
+static char	*ft_alok(int len);
+static int	count_int(int n);
 
-char *ft_itoa(int n)
+static int	count_int(int n)
 {
-    char    *str;
-    int    power;
-    int    i;
+	int	i;
+	int	no_sign;
 
-    str = (char *)malloc(count_int(n) * sizeof(char) + 1);
-    if (n < 0)
-    {
-      str[0] = '-';
-      n = n * (-1);
-      i = 1;
-    }
-    else
-      i = 0;
-    power = 10;
-    while ((n / power) >= 10)
-        power *= 10;
-    while (power >= 1)
-    {
-        str[i] = (n / power) + 48;
-        i++;
-        n = n % power;
-        power /= 10;
-    }
-    str[i] = '\0';
-    return (str);
+	i = 0;
+	no_sign = 0;
+	if (n < 0)
+	{
+		no_sign = -n;
+		i++;
+	}
+	else
+		no_sign = n;
+	while ((no_sign / 10) != 0)
+	{
+		i++;
+		no_sign = no_sign / 10;
+	}
+	return (i + 1);
 }
 
-static int    count_int(int n)
+static char	*ft_alok(int len)
 {
-    int    i;
+	char	*result;
 
-    i = 0;
-    if (n < 0)
-    {
-        n = -n;
-        i++;
-    }
-    while ((n / 10) != 0)
-    {
-        i++;
-        n = n / 10;
-    }
-    return (i + 1);
+	if (len == 0)
+		return (NULL);
+	result = ft_calloc(sizeof(char), len + 1);
+	if (!result)
+		return (NULL);
+	return (result);
 }
-// #include "stdio.h"
-// int    main(void)
-// {
-//     printf("%s\n", ft_itoa(1000));
-// }
+
+char	*ft_itoa(int n)
+{
+	char	*result;
+	long	nb;
+	int		count;
+
+	nb = n;
+	count = count_int(nb);
+	result = ft_alok(count);
+	if (nb < 0)
+		nb = -nb;
+	while (count > 0)
+	{
+		if (nb <= 9)
+		{
+			result[count - 1] = nb + 48;
+			break ;
+		}
+		result[count - 1] = (nb % 10) + 48;
+		nb /= 10;
+		count--;
+	}
+	if (n < 0)
+		result[0] = '-';
+	return (result);
+}
