@@ -29,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	s2 = ft_calloc(len + 1, sizeof(char));
 	if (!s2)
 		return (NULL);
-	while ( i < len)
+	while (i < len)
 	{
 		s2[i] = s[start + i];
 		i++;

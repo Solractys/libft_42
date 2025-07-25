@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char const *s1, char const *s2);
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*s3;
 	size_t	i;
@@ -35,9 +35,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	while (i < size)
-	{
 		s3[i++] = s2[j++];
-	}
 	s3[i] = '\0';
 	return (s3);
 }

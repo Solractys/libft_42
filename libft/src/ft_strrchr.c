@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "libft.h"
+#include "libft.h"
 
- char *ft_strrchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
 
- char *ft_strrchr(const char *s, int c)
- {
+char	*ft_strrchr(const char *s, int c)
+{
 	short	i;
 	char	cc;
 	char	*result;
@@ -32,6 +32,4 @@
 	if (c == 0)
 		result = (char *)&s[i];
 	return (result);
-
- }
-
+}
