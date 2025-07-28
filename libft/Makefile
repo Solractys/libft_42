@@ -5,10 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = rcs
 
-OBJDIR = objs
-SRCDIR = src
-
-SRC =	ft_atoi.c	\
+SRCS =	ft_atoi.c	\
 		ft_bzero.c	\
 		ft_calloc.c	\
 		ft_isalnum.c \
@@ -43,25 +40,18 @@ SRC =	ft_atoi.c	\
 		ft_tolower.c \
 		ft_toupper.c
 
-SRCS = $(addprefix $(SRCDIR)/, $(SRC))
-
-OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
+%.o: %.c
 	$(CC) $(CFLAGS) -I ./ -c $< -o $@
-
-$(OBJDIR):
-	@echo "Criando diretório de objetos"
-	@mkdir -p $(OBJDIR)
-
 clean:
 	@echo "Removendo diretório de objetos: $(OBJDIR)"
-	@rm -rf $(OBJDIR)
+	@rm -rf $(OBJS)
 
 fclean:clean
 	@echo "Removendo lib: $(NAME)"

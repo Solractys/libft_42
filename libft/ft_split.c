@@ -6,25 +6,25 @@
 /*   By: csilva-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 13:17:04 by csilva-s          #+#    #+#             */
-/*   Updated: 2025/07/28 12:00:39 by csilva-s         ###   ########.fr       */
+/*   Updated: 2025/07/28 14:36:43 by csilva-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c);
-char	*ft_alloc_word(char *s, char c);
-void	free_all(char **s, int size);
-int		word_count(char const *s, char c);
+char		**ft_split(char const *s, char c);
+static	char	*ft_alloc_word(char *s, char c);
+static	void	free_all(char **s, int size);
+static	int	word_count(char const *s, char c);
 
-void	free_all(char **s, int size)
+static void	free_all(char **s, int size)
 {
 	while (size > 0)
 		free(s[size--]);
 	free(s);
 }
 
-int	word_count(char const *s, char c)
+static int	word_count(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -53,7 +53,7 @@ int	word_count(char const *s, char c)
 	return (count);
 }
 
-char	*ft_alloc_word(char *s, char c)
+static char	*ft_alloc_word(char *s, char c)
 {
 	char	*dest;
 	short	i;
