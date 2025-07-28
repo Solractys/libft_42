@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*  ft_memchr.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csilva-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 18:04:00 by csilva-s          #+#    #+#             */
-/*   Updated: 2025/07/20 18:04:00 by csilva-s         ###   ########.fr       */
+/*   Updated: 2025/07/28 17:59:55 by csilva-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	cpy_c = (unsigned char )c;
 	cpy_s = (unsigned char *)s;
-	while (cpy_s[i] && n > 0)
+	while (n > 0)
 	{
 		if (cpy_s[i] == cpy_c)
 			return (&cpy_s[i]);

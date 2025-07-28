@@ -6,7 +6,7 @@
 /*   By: csilva-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 13:17:04 by csilva-s          #+#    #+#             */
-/*   Updated: 2025/07/28 14:36:43 by csilva-s         ###   ########.fr       */
+/*   Updated: 2025/07/28 18:57:24 by csilva-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,10 @@ char	**ft_split(char const *s, char c)
 	words = word_count(s, c);
 	result = (char **)ft_calloc(sizeof(char *), words + 1);
 	if (!result)
-		return (free_all(result, words), NULL);
+	{
+		free_all(result, words);
+		return (NULL);
+	}
 	while (s[i] != '\0')
 	{
 		if (s[i] != c)
@@ -94,8 +97,7 @@ char	**ft_split(char const *s, char c)
 			while (s[i] != c && s[i] != '\0')
 				i++;
 		}
-		else
-			i++;
+		i++;
 	}
 	return (result);
 }

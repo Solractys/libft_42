@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*  ft_strnstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csilva-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 16:33:00 by csilva-s          #+#    #+#             */
-/*   Updated: 2025/07/17 16:33:00 by csilva-s         ###   ########.fr       */
+/*   Updated: 2025/07/28 18:30:24 by csilva-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	i = 0;
 	if (little[i] == '\0')
 		return ((char *)&big[i]);
-	if (len < ft_strlen(little) || (int )len <= 0)
-		return (NULL);
+	if (len < 0)
+		len = ft_strlen(big);
 	while (big[i] != '\0' && i < len)
 	{
 		j = 0;

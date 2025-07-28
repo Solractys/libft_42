@@ -50,7 +50,7 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -I ./ -c $< -o $@
 clean:
-	@echo "Removendo diretório de objetos: $(OBJDIR)"
+	@echo "Removendo objetos :D"
 	@rm -rf $(OBJS)
 
 fclean:clean

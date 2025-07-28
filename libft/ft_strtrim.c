@@ -6,7 +6,7 @@
 /*   By: csilva-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 17:55:00 by csilva-s          #+#    #+#             */
-/*   Updated: 2025/07/28 14:29:10 by csilva-s         ###   ########.fr       */
+/*   Updated: 2025/07/28 19:17:57 by csilva-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 	size_t	i;
 
-	if (!s1 || !set)
+	if (!s1 && !set)
 		return (NULL);
+	if (!set)
+		return ((char *)s1);
 	start = 0;
 	end = ft_strlen(s1);
 	while (ft_strchr(set, s1[start]))
