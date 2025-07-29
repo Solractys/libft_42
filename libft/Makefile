@@ -41,6 +41,7 @@ SRCS =	ft_atoi.c	\
 		ft_toupper.c
 
 OBJS = $(SRCS:.c=.o)
+LIBA = ./
 
 all: $(NAME)
 
@@ -48,7 +49,7 @@ $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I ./ -c $< -o $@
+	$(CC) $(CFLAGS) -I$(LIBA) -c $< -o $@
 clean:
 	@echo "Removendo objetos :D"
 	@rm -rf $(OBJS)

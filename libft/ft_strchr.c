@@ -6,7 +6,7 @@
 /*   By: csilva-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 13:12:00 by csilva-s          #+#    #+#             */
-/*   Updated: 2025/07/21 15:41:22 by csilva-s         ###   ########.fr       */
+/*   Updated: 2025/07/28 22:54:45 by solrac           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	if (c == 0)
+	if (c == '\0')
 		return ((char *)&s[i]);
 	return (NULL);
 }
