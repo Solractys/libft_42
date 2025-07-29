@@ -6,7 +6,7 @@
 /*   By: csilva-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 13:17:04 by csilva-s          #+#    #+#             */
-/*   Updated: 2025/07/28 18:57:24 by csilva-s         ###   ########.fr       */
+/*   Updated: 2025/07/29 18:32:01 by csilva-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static	int	word_count(char const *s, char c);
 
 static void	free_all(char **s, int size)
 {
-	while (size > 0)
-		free(s[size--]);
+	while (size-- > 0)
+		free(s[size]);
 	free(s);
 }
 
@@ -56,12 +56,12 @@ static int	word_count(char const *s, char c)
 static char	*ft_alloc_word(char *s, char c)
 {
 	char	*dest;
-	short	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != c && s[i] != '\0')
 		i++;
-	dest = ft_calloc(i + 1, sizeof(char));
+	dest = (char *)ft_calloc(i + 1, sizeof(char));
 	if (!dest)
 		return (NULL);
 	i = 0;
@@ -75,10 +75,10 @@ static char	*ft_alloc_word(char *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
-	int		words;
-	int		i;
-	int		j;
+	char		**result;
+	size_t		words;
+	size_t		i;
+	size_t		j;
 
 	i = 0;
 	j = 0;
@@ -89,7 +89,7 @@ char	**ft_split(char const *s, char c)
 		free_all(result, words);
 		return (NULL);
 	}
-	while (s[i] != '\0')
+	while (i < ft_strlen(s))
 	{
 		if (s[i] != c)
 		{

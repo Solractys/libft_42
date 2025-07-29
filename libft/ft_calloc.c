@@ -6,7 +6,7 @@
 /*   By: csilva-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:53:09 by csilva-s          #+#    #+#             */
-/*   Updated: 2025/07/28 17:48:45 by csilva-s         ###   ########.fr       */
+/*   Updated: 2025/07/29 18:35:09 by csilva-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,20 @@ void	*ft_calloc(size_t nmemb, size_t size);
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned char	*temp;
-	size_t			i;
-	int				bytes;
+	unsigned char		*temp;
+	void				*mem;
+	size_t				i;
 
-	bytes = nmemb * size;
 	if (nmemb == 0 || size == 0)
-	{
-		temp = malloc(1);
-		return (temp);
-	}
-	if (size && ((bytes / size) != nmemb))
+		return (malloc(1));
+	if (size && nmemb > (size_t) - 1 / size)
 		return (NULL);
-	temp = malloc(nmemb * size);
+	mem = malloc(nmemb * size);
+	if (!mem)
+		return (NULL);
+	temp = (unsigned char *)mem;
 	i = 0;
-	if (!temp)
-		return (NULL);
 	while (i < nmemb * size)
 		temp[i++] = 0;
-	return (temp);
+	return (mem);
 }
